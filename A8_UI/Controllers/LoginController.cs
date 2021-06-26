@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using A8UI.Data.Domain;
 using A8UI.Data.IServices;
+using System.Threading;
 
 namespace A8_UI.Controllers
 {
@@ -22,8 +23,9 @@ namespace A8_UI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(string email, string password)
+        public async Task<IActionResult> Login(string email, string password, CancellationToken ct = default(CancellationToken))
         {
+            var user = await usersService.GetById(1, ct);
             if (!string.IsNullOrEmpty(email.Trim()) || !string.IsNullOrEmpty(password.Trim()))
             {
                 //Valida usuario en base de datos
