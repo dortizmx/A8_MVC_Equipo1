@@ -8,6 +8,12 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Autofac;
+using A8UI.Data.Domain;
+using A8UI.Data.IRepository;
+using A8UI.Data.Repositories;
+using A8UI.Data.IServices;
+using A8UI.Data.Services;
 
 namespace A8_UI
 {
@@ -52,6 +58,22 @@ namespace A8_UI
                     name: "default",
                     pattern: "{controller=Login}/{action=Index}");
             });
+        }
+
+        public ILifetimeScope AutofacContainer { get; private set; }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            // Register your own things directly with Autofac here. Don't
+            // call builder.Populate(), that happens in AutofacServiceProviderFactory
+            // for you.
+            
+            builder.RegisterType<UserRepository>().As<IUsersRepository>();
+            builder.RegisterType<UsersService>().As<IUsersService>();
+            //builder.RegisterType<MemberRepository>().As<IMemberRepository>();
+            //builder.RegisterType<Npgsql.NpgsqlConnection>().As<IDbConnection>();
+            //builder.Register(c => new Npgsql.NpgsqlConnection(Configuration.GetSection("AppConfiguration")["DBConnection"])).As<IDbConnection>();
+            //builder.RegisterType<IConfiguration>().AsSelf();
         }
     }
 }

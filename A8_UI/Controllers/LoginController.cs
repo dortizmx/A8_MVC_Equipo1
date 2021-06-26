@@ -4,11 +4,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using A8UI.Data.Domain;
+using A8UI.Data.IServices;
 
 namespace A8_UI.Controllers
 {
     public class LoginController : Controller
     {
+        private IUsersService usersService;
+        public LoginController(IUsersService usersService)
+        {
+            this.usersService = usersService;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -21,10 +28,10 @@ namespace A8_UI.Controllers
             {
                 //Valida usuario en base de datos
                 var _user = getUser(email, password);
-                RedirectToAction("index", "main");
+                return RedirectToAction("index", "main");
                 
             }
-            return RedirectToAction("main");
+            return RedirectToAction("Login","Login");
         }
 
         private Users getUser(string email, string password)
