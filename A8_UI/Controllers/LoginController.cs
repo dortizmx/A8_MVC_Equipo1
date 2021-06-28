@@ -19,39 +19,26 @@ namespace A8_UI.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Error = "";
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Login(string email, string password, CancellationToken ct = default(CancellationToken))
         {
-            var user = await usersService.GetById(1, ct);
-            if (!string.IsNullOrEmpty(email.Trim()) || !string.IsNullOrEmpty(password.Trim()))
+            //var user = await usersService.GetById(1, ct);
+            var users = await usersService.GetByEmail(email, ct);
+            if (users != null)
             {
-                //Valida usuario en base de datos
-                var _user = getUser(email, password);
-                return RedirectToAction("index", "main");
-                
+                if (string.Equals(password, users.Contrasena))
+                {
+                    return RedirectToAction("index", "main");
+                }               
             }
-            return RedirectToAction("Login","Login");
+            ViewBag.Error = "Usuario Invalido";
+            return View("Index");
         }
 
-        private Users getUser(string email, string password)
-        {
-            Users retval = new Users();
-            if (email == "dortizmx@gmail.com")
-            {
-                retval.Email = "dortizmx@gmail.com";
-                retval.Nombre = "David";
-                retval.ApellidoPaterno = "Ortiz";
-                retval.ApellidoMaterno = "Mota";
-                retval.Contraseña = "1234";
-                retval.Id = 1;
-                retval.Status = "AC";
-            }
-            else return null;
-            return retval;
-
-        }
+        
     }
 }

@@ -17,13 +17,15 @@ namespace A8UI.Data.Domain
         [Column("email", TypeName ="varchar(255)")]
         public string Email { get; set; }
         [Column("apellido_paterno", TypeName ="varchar(255)")]
-        public string ApellidoPaterno { get; set; }
+        public string Apellido_Paterno { get; set; }
         [Column("apellido_materno", TypeName = "varchar(255)")]
-        public string ApellidoMaterno { get; set; }
-        [Column("contraseña", TypeName = "varchar(100)")]
-        public string Contraseña { get; set; }
+        public string Apellido_Materno { get; set; }
+        [Column("contrasena", TypeName = "varchar(100)")]
+        public string Contrasena { get; set; }
         [Column("status", TypeName = "varchar(2)")]
         public string Status { get; set; }
+        [Column("tipousuario", TypeName ="varchar(3)")]
+        public string TipoUsuario { get; set; }
 
     }
 

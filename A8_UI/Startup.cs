@@ -14,6 +14,9 @@ using A8UI.Data.IRepository;
 using A8UI.Data.Repositories;
 using A8UI.Data.IServices;
 using A8UI.Data.Services;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
 
 namespace A8_UI
 {
@@ -73,7 +76,10 @@ namespace A8_UI
             //builder.RegisterType<MemberRepository>().As<IMemberRepository>();
             //builder.RegisterType<Npgsql.NpgsqlConnection>().As<IDbConnection>();
             //builder.Register(c => new Npgsql.NpgsqlConnection(Configuration.GetSection("AppConfiguration")["DBConnection"])).As<IDbConnection>();
+            //builder.Register(c=> new System.Data)
             //builder.RegisterType<IConfiguration>().AsSelf();
+            //builder.RegisterType<SqlConnection>().As<IDbConnection>();
+            builder.Register(c => new SqlConnection(Configuration.GetSection("AppConfiguration")["DBConnection"])).As<IDbConnection>();
         }
     }
 }
