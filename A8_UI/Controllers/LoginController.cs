@@ -26,16 +26,16 @@ namespace A8_UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(string email, string password, CancellationToken ct = default(CancellationToken))
         {
-            //var user = await usersService.GetById(1, ct);
+           
             var users = await usersService.GetByEmail(email, ct);
             if (users != null)
             {
                 if (string.Equals(password, users.Contrasena))
                 {
-                    return RedirectToAction("index", "main");
+                    return RedirectToAction("index", "home");
                 }               
             }
-            ViewBag.Error = "Usuario Invalido";
+            ViewBag.Error = "Usuario y/o Contraseña Invalidos";
             return View("Index");
         }
 
