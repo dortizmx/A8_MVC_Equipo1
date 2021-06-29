@@ -13,5 +13,6 @@ namespace A8UI.Data.IRepository
         public Task<T> Update(T obj, CancellationToken ct = default(CancellationToken));
         public Task<T> Delete(T obj, CancellationToken ct = default(CancellationToken));
 
+
     }
 }

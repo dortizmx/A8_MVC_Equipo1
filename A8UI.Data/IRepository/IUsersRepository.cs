@@ -7,5 +7,7 @@ namespace A8UI.Data.IRepository
     public interface IUsersRepository : IRepository<Users>
     {
         public Task<Users> GetByEmail(string email, CancellationToken ct = default(CancellationToken));
+
+
     }
 }
