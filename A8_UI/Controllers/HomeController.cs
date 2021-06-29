@@ -33,5 +33,14 @@ namespace A8_UI.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult AgregaPaciente()
+        {
+            return View();
+        }
+        public IActionResult AgregarCita()
+        {
+            return View();
+        }
     }
 }

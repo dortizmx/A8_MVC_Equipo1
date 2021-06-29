@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "AgregaPaciente";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center pt-4">
+            <h2 class="text-secondary">Nuevo Paciente</h2>
+        </div>
+    </div>
+
+    <div class="row pt-5">
+        <div class="col-xl-6 col-md-12 pt-2">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input id="nombre" class="form-control" name="nombre" placeholder="Nombre Paciente">
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-12 pt-2">
+            <div class="form-group">
+                <label for="apellidopaterno">Apellido Paterno:</label>
+                <input id="apellidopaterno" class="form-control" name="apellidopaterno" placeholder="Apellido Paterno">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-6 col-md-12 pt-2">
+            <div class="form-group">
+                <label for="apellidomaterno">Apellido Materno_</label>
+                <input id="apellidomaterno" class="form-control" name="apellidomaterno" placeholder="Apellido Materno">
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-12 pt-2">
+            <div class="form-group">
+                <label for="fechanacimiento">Fecha Nacimiento:</label>
+                <input type="date" id="fechanacimiento" class="form-control" name="fechanacimiento">
+            </div>
+        </div>
+    </div>
+    <div class="row pt-5">
+        <div class="col-12">
+            <button type="button" class="btn btn-lg btn-primary">Agregar Nuevo Paciente</button>
+        </div>
+        
+    </div>
+
+
+</div>
+

@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "AgregarCita";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center pt-4">
+            <h2 class="text-secondary">Agregar Cita</h2>
+        </div>
+    </div>
+    <div class="row pt-5">
+        <div class="col-xl-6 col-md-12 pt-2">
+            <div class="form-group">
+                <label for="nombre">Paciente:</label>
+                <input id="nombre" class="form-control" name="nombre" placeholder="Nombre Paciente">
+            </div>
+        </div>
+    </div>
+    <div class="row pt-2">
+        <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+                <label for="fecha">Fecha:</label>
+                <input id="fecha" class="form-control" name="fecha" type="date" />
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+                <label for="hora">Hora:</label>
+                <input id="hora" class="form-control" name="hora" type="time" />
+            </div>
+        </div>
+    </div>
+    <div class="row pt-2">
+        <div class="col-12 pt-2">
+            <div class="form-group">
+                <label for="sintomas">Sintomas:</label>
+                <textarea id="sintomas" class="form-control" name="sintomas"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
