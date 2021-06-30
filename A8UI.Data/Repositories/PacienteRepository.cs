@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using A8UI.Data.Domain;
-using A8UI.Data.IRepository;
+using A8UI.Data.IRepositories;
 using Dapper;
+using System.Linq;
 
 namespace A8UI.Data.Repositories
 {
@@ -27,7 +29,7 @@ namespace A8UI.Data.Repositories
                     obj.ApellidoPaterno,
                     obj.ApellidoMaterno,
                     obj.FechaNacimiento,
-                    DateTime.Now,
+                    fechaingreso = DateTime.Now,
                     Status = "AC"
                 }
                 );
@@ -41,9 +43,13 @@ namespace A8UI.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<List<Paciente>> GetAll(CancellationToken ct = default)
+        public async Task<List<Paciente>> GetAll(CancellationToken ct = default)
         {
-            throw new NotImplementedException();
+            var sql = new StringBuilder();
+            sql.Append(" select id, nombre,apellidopaterno, apellidomaterno, fechanaciemiento 'fechanacimiento', fechaingreso, status ");
+            sql.Append("   from paciente");
+            var retvalue = await dbConnection.QueryAsync<Paciente>(sql.ToString());
+            return retvalue.ToList<Paciente>();
         }
 
         public Task<Paciente> GetById(int id, CancellationToken ct = default)

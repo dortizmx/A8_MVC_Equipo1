@@ -10,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Autofac;
 using A8UI.Data.Domain;
-using A8UI.Data.IRepository;
+using A8UI.Data.IRepositories;
 using A8UI.Data.Repositories;
 using A8UI.Data.IServices;
 using A8UI.Data.Services;
@@ -73,8 +73,7 @@ namespace A8_UI
             
             builder.RegisterType<UserRepository>().As<IUsersRepository>();
             builder.RegisterType<UsersService>().As<IUsersService>();
-            builder.RegisterType<PacienteRepository>.
-            //builder.RegisterType<PacienteRepository>.As<IPacienteRepository>();
+            builder.RegisterType<PacienteRepository>().As<IPacienteRepository>();
             builder.RegisterType<PacienteService>().As<IPacienteService>();
             //builder.RegisterType<MemberRepository>().As<IMemberRepository>();
             //builder.RegisterType<Npgsql.NpgsqlConnection>().As<IDbConnection>();

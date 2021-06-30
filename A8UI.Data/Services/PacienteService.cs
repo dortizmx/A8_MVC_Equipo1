@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using A8UI.Data.Domain;
-using A8UI.Data.IRepository;
+using A8UI.Data.IRepositories;
 using A8UI.Data.IServices;
 
 
@@ -28,9 +28,10 @@ namespace A8UI.Data.Services
             throw new NotImplementedException();
         }
 
-        public Task<List<Paciente>> GetAll(CancellationToken ct = default)
+        public async Task<List<Paciente>> GetAll(CancellationToken ct = default)
         {
-            throw new NotImplementedException();
+            var retvalue = await pacienteRepository.GetAll(ct);
+            return retvalue;
         }
 
         public Task<Paciente> GetById(int id, CancellationToken ct = default)

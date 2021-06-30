@@ -47,11 +47,19 @@ namespace A8_UI.Controllers
         [HttpPost]
         public async Task<IActionResult> AgregaPaciente([FromForm] Paciente obj, CancellationToken ct = default(CancellationToken))
         {
-            
+            var retval = await pacienteService.Add(obj, ct);
             return View();
         }
         public IActionResult AgregarCita()
         {
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ObtinePacientes(CancellationToken ct = default(CancellationToken))
+        {
+            List<Paciente> pacientes = await pacienteService.GetAll(ct);
+            ViewBag.Pacientes = "";
             return View();
         }
     }

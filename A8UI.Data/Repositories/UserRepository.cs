@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using A8UI.Data.Domain;
-using A8UI.Data.IRepository;
+using A8UI.Data.IRepositories;
 using System.Data;
 using System.Data.SqlClient;
 using Dapper;

@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using A8UI.Data.Domain;
 using A8UI.Data.IServices;
-using A8UI.Data.IRepository;
+using A8UI.Data.IRepositories;
 
 namespace A8UI.Data.Services
 {
