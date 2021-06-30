@@ -26,4 +26,9 @@
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="IRepository\IPacienteRepository.cs" />
+    <Compile Remove="Repositories\PacienteRepository.cs" />
+    <Compile Remove="Services\PacienteService.cs" />
+  </ItemGroup>
 </Project>

@@ -73,6 +73,9 @@ namespace A8_UI
             
             builder.RegisterType<UserRepository>().As<IUsersRepository>();
             builder.RegisterType<UsersService>().As<IUsersService>();
+            builder.RegisterType<PacienteRepository>.
+            //builder.RegisterType<PacienteRepository>.As<IPacienteRepository>();
+            builder.RegisterType<PacienteService>().As<IPacienteService>();
             //builder.RegisterType<MemberRepository>().As<IMemberRepository>();
             //builder.RegisterType<Npgsql.NpgsqlConnection>().As<IDbConnection>();
             //builder.Register(c => new Npgsql.NpgsqlConnection(Configuration.GetSection("AppConfiguration")["DBConnection"])).As<IDbConnection>();
